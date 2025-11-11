@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Web Page</title>
+    
+    <!-- Internal CSS -->
+    <style>
+        /* ID selector for main heading */
+        #main-heading {
+            color: #2e8b57;
+            text-align: center;
+        }
+
+        /* Class selector for sub-heading */
+        .sub-heading {
+            color: #ff4500;
+            text-align: left;
+            flex-wrap:wrap-reverse;
+        
+        }
+        li{
+            text-align: center;
+            list-style-type: square;
+            font-size: 20px;}
+        /* Paragraph alignment */
+        .paragraph-text {
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* Image alignment */
+        .image-style {
+            border: 2px solid #000;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Link styling */
+        .link-style {
+            text-decoration: none;
+            color: #1e90ff;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+        }
+
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: left;
+        }
+
+        /* Form styling using class */
+        .input-field {
+            padding: 8px;
+            width: 250px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            padding: 8px 16px;
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #3cb371;
+        }
+
+        /* Center the form */
+        .form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#fafad2"> <!-- Inline CSS for background color -->
+
+    <!-- Heading 1 with ID and inline alignment override -->
+    <h1 id="main-heading" style="font-family: Georgia, serif; text-align:center;">Welcome to My Web Page</h1>
+
+    <!-- Heading 3 using class -->
+    <h3 class="sub-heading">About Me</h3>
+
+    <!-- Paragraph using class -->
+    <p class="paragraph-text">
+        Hello! My name is [Your Name]. I love coding, designing, and exploring new technologies.<br>
+        I am learning HTML, CSS, and JavaScript.<br>
+        This is my personal web page project.
+    </p>
+
+    <!-- Horizontal line -->
+    <hr>
+
+    <!-- Image using class -->
+    <img src="yourimage.jpg" alt="My Image" class="image-style" width="200" height="150">
+
+    <!-- Preformatted text -->
+    <pre>
+Roses are red,
+Violets are blue,
+Coding is fun,
+And so are you!
+    </pre>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Java</li>
+    </ol>
+    <!-- Link using class -->
+    <p>
+        Check out my favorite website: 
+        <a href="https://www.example.com" target="_blank" class="link-style">Example.com</a>
+    </p>
+
+    <!-- Form at the bottom -->
+    <div class="form-container">
+        <form action="#" method="post">
+            <input type="text" class="input-field" placeholder="Enter your name" required>
+            <br>
+            <input type="submit" class="submit-btn" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>

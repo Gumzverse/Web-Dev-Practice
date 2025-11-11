@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex Wrap and Flex Flow Examples</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 20px;
+  }
+
+  h2 {
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    width: fit-content;
+  }
+
+  .example {
+    border: 2px dashed #ccc;
+    background: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+  }
+
+  /* Common flex container style */
+  .flex-container {
+    display: flex; /* enables flexbox */
+    border: 2px solid #333;
+    padding: 10px;
+    width: 320px; /* fixed width to show wrapping effect */
+    height: 200px;
+  }
+
+  /* Common box style */
+  .box {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 8px;
+    min-width: 80px; /* ensures wrapping when space runs out */
+    text-align: center;
+  }
+
+  /* 1️⃣ No wrap (default) */
+  .nowrap {
+    flex-wrap: nowrap; /* all items stay on one line */
+  }
+
+  /* 2️⃣ Wrap */
+  .wrap {
+    flex-wrap: wrap; /* items move to next line if needed */
+  }
+
+  /* 3️⃣ Wrap reverse */
+  .wrap-reverse {
+    flex-wrap: wrap-reverse; /* items wrap bottom to top */
+  }
+
+  /* 4️⃣ Flex-flow shorthand example */
+  .flex-flow-example {
+    flex-flow: column wrap; 
+    /* means:
+       flex-direction: column;
+       flex-wrap: wrap;
+    */
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧩 Flexbox — flex-wrap and flex-flow Examples</h1>
+
+<!-- Example 1: No wrap -->
+<div class="example">
+  <h2>flex-wrap: nowrap (default)</h2>
+  <div class="flex-container nowrap">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+  <!-- ❌ Items stay on one line (even if overflowing) -->
+</div>
+
+<!-- Example 2: Wrap -->
+<div class="example">
+  <h2>flex-wrap: wrap</h2>
+  <div class="flex-container wrap">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+  <!-- ✅ Items wrap to the next line when space runs out -->
+</div>
+
+<!-- Example 3: Wrap Reverse -->
+<div class="example">
+  <h2>flex-wrap: wrap-reverse</h2>
+  <div class="flex-container wrap-reverse">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+  <!-- 🔄 Items wrap in reverse order (bottom to top) -->
+</div>
+
+<!-- Example 4: Flex Flow (shorthand) -->
+<div class="example">
+  <h2>flex-flow: column wrap</h2>
+  <div class="flex-container flex-flow-example">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+  <!-- 🎯 flex-flow combines:
+       flex-direction: column;
+       flex-wrap: wrap;
+  -->
+</div>
+
+</body>
+</html>

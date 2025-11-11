@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex Direction Examples</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    padding: 20px;
+  }
+
+  h2 {
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    width: fit-content;
+  }
+
+  .example {
+    border: 2px dashed #ccc;
+    background: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+  }
+
+  /* Common style for all flex containers */
+  .flex-container {
+    display: flex; /* Enables flexbox layout */
+    border: 2px solid #333;
+    padding: 10px;
+    height: 150px;
+    justify-content: center; /* Centers items along main axis */
+    align-items: center; /* Centers items along cross axis */
+  }
+
+  /* Common style for all boxes */
+  .box {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 8px;
+  }
+
+  /* 1. Row (default) */
+  .row {
+    flex-direction: row; /* Items go LEFT ➡ RIGHT */
+  }
+
+  /* 2. Row Reverse */
+  .row-reverse {
+    flex-direction: row-reverse; /* Items go RIGHT ➡ LEFT */
+  }
+
+  /* 3. Column */
+  .column {
+    flex-direction: column; /* Items go TOP ⬇ BOTTOM */
+  }
+
+  /* 4. Column Reverse */
+  .column-reverse {
+    flex-direction: column-reverse; /* Items go BOTTOM ⬆ TOP */
+  }
+</style>
+</head>
+<body>
+
+<h1>🧩 Flexbox — flex-direction Examples</h1>
+
+<!-- Example 1: Row -->
+<div class="example">
+  <h2>flex-direction: row (default)</h2>
+  <div class="flex-container row">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+  <!-- Items go from left ➡ right -->
+</div>
+
+<!-- Example 2: Row Reverse -->
+<div class="example">
+  <h2>flex-direction: row-reverse</h2>
+  <div class="flex-container row-reverse">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+  <!-- Items go from right ➡ left -->
+</div>
+
+<!-- Example 3: Column -->
+<div class="example">
+  <h2>flex-direction: column</h2>
+  <div class="flex-container column">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+  <!-- Items go from top ⬇ bottom -->
+</div>
+
+<!-- Example 4: Column Reverse -->
+<div class="example">
+  <h2>flex-direction: column-reverse</h2>
+  <div class="flex-container column-reverse">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+  <!-- Items go from bottom ⬆ top -->
+</div>
+
+</body>
+</html>
