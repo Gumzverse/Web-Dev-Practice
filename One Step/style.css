@@ -1,7 +1,0 @@
-/* Basic styles for One Step demo */
-:root{--bg:#f7f9fc;--card:#ffffff;--accent:#0b5cff}
-html,body{height:100%;margin:0;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111}
-.container{max-width:720px;margin:6rem auto;background:var(--card);padding:2rem;border-radius:10px;box-shadow:0 6px 24px rgba(12,25,50,0.08)}
-h1{margin-top:0;color:var(--accent)}
-button{background:var(--accent);color:#fff;border:0;padding:0.6rem 1rem;border-radius:6px;cursor:pointer}
-button:active{transform:translateY(1px)}
