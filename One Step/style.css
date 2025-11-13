@@ -1,35 +1,82 @@
+body {
+    font-family:sans-serif, helvetica;
+    background: radial-gradient(rgb(255, 199, 208), rgba(69, 33, 99, 0.979))
+}
 .logo {
     font-size: 15px;
     font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
+    text-align: left;
+    padding-left: 20px;
+    margin: 20px;
 }
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: stretch;
     height: 250px;
-    padding: 20px;
-    gap: 20px;
+    padding: 25px;
+    gap: 15px;
 }
 .left-panel {
-    flex: 2;
-    background-color: #ffe6f0;
+    flex: 8;
+    background-color: #ff50501e;
     border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 221, 221, 0.299);
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .right-panel {
     flex: 2;
     background-color: #ff50501e;
     border-radius: 10px;
+     border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 221, 221, 0.299);
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}    
+}   
+.character{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 208, 216);
+    border-radius: 8px;
+    position: relative;
+    animation: hop 1s ease-in-out infinite;
+} 
+@keyframes hop {
+    0%{
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.stairs {
+   position: relative;
+   width: 100%;
+   height: 200px;
+   background:linear-gradient(to top right, #ffccdd, #ffffff00);
+   overflow: hidden;
+}
+@keyframes stairMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+.stairs {
+    background-size: 50px 50px;
+    animation: stairMove 2s linear infinite;
+}
