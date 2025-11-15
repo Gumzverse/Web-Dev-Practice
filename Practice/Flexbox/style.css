@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+}
+
+.header, .nav, .main, .footer {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 90%;
+    max-width: 900px;
+}
+
+.header:hover, .main:hover, .footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
+}
+.header p {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+.nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav ul li {
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.nav ul li:hover {
+    background: #0072ff;
+    color: white;
+    transform: scale(1.1);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.main .box {
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(135deg, #b6fffa86, #8de2ff);
+    text-align: center;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.main .box:hover {
+    transform: scale(1.15);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.footer {
+    text-align: center;
+    font-size: 14px;
+    background: rgba(0, 198, 255, 0.9);
+    color: white;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
