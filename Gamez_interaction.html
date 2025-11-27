@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction</title>
+</head>
+
+<body>
+
+<!-- Button to start interaction -->
+    <button type="button" id="click-btn">Click Me</button>
+
+<!-- Confirm box (hidden) - not used directly in the code, but here in case you want to show it. -->
+    <div id="confirm-box" style="display:none;">
+        <p>Do you want to enter your favorite color?</p>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+    </div>
+
+<!-- Prompt box (hidden) - same for input -->
+    <div id="prompt-box" style="display:none;">
+        <p>What is your favorite color:</p>
+        <input type="text" id="color-input" />
+        <button id="submit-btn">Submit</button>
+    </div>
+
+    <script>
+// Get the button and assign the click event.
+        document.getElementById("click-btn").onclick = function () {
+
+// Magpakita ng confirm box sa user
+// User has option na OK o Cancel (Yes/No)
+            confirm("Do you want to enter your favorite color?");
+
+// Magpakita ng prompt box para mag-input ng favorite color
+// The input will be saved in the variable = 'color'.
+            let color = prompt("What is your favorite color?");
+
+// Display in an alert the value entered by the user.
+            alert("Your favorite color is " + color + "!");
+        };
+    </script>
+
+</body>
+</html>
