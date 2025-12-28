@@ -17,3 +17,5 @@ A personal space to build, test, and refine web development projects.
 [1plus4Calculator](Practice/Valentines)
 
 [Midterm-Exam](A92_MidExam_Gamez_FridelIan)
+
+[Finals-Exam](https://github.com/Gumzverse/Web-Dev-Practice/tree/main/A92_Gamez_FinalExam)
