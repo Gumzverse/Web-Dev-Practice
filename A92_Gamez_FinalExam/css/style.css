@@ -1,0 +1,716 @@
+:root {
+  /* Theme variables for colors used across the app */
+  --accent: rgb(74, 222, 128);
+  --accent-soft: rgba(74, 222, 128, 0.12);
+  --bg: #1f2933;
+  --bg-elevated: #24333f;
+  --bg-card: #2b3a45;
+  --border-subtle: #3b4c5a;
+  --text-main: #f9fafb;
+  --text-muted: #cbd2d9;
+  --danger: #f97373;
+}
+
+/* Global reset and base page styling */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #1f2933;
+  color: var(--text-main);
+  background-image: url(../Assets/Background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Top navigation bar layout and branding */
+
+.top-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: #24333f;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: #1f2933;
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.brand-logo {
+  width: 200%;
+  height: 200%;
+  object-fit: cover;
+}
+
+.brand-text {
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  flex: 1;
+  max-width: 1100px;
+}
+
+.nav-link {
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.nav-cta {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: var(--accent);
+  color: #064e3b;
+  transform: translateY(-1px);
+}
+
+/* Main layout container and section headings */
+
+.app {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 22px 18px 36px;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* Card component styling used for panels and boxes */
+
+.card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.4);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+/* Highlight cards slightly on hover */
+
+.card:hover {
+  border-color: rgba(74, 222, 128, 0.8);
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.9),
+    0 12px 28px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Form fields, labels, and buttons */
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 9px 11px;
+  border-radius: 8px;
+  border: 1px solid #4b6274;
+  background: #1f2933;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.4);
+}
+
+.field-row {
+  display: flex;
+  gap: 10px;
+}
+
+.field-row .field {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: none;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #064e3b;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.primary-btn:hover {
+  background: rgb(52, 211, 153);
+  transform: translateY(-1px);
+}
+
+.primary-btn-full {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.message {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--accent);
+  display: none;
+}
+
+/* Training log table layout and row styling */
+
+.day-block + .day-block {
+  margin-top: 16px;
+}
+
+.day-block h3 {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.workout-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.workout-table thead {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.workout-table th,
+.workout-table td {
+  padding: 8px 8px;
+  border-bottom: 1px solid #334554;
+}
+
+/* Table header appearance */
+
+.workout-table th {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.workout-table tbody tr td {
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.workout-table tbody tr:hover {
+  background: #24333f;
+}
+
+/* Empty state row for tables */
+
+.workout-table tbody tr td[colspan="5"] {
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.workout-table tbody td:nth-child(1),
+.workout-table tbody td:nth-child(2),
+.workout-table tbody td:nth-child(3),
+.workout-table tbody td:nth-child(4),
+.workout-table tbody td:nth-child(5) {
+  text-align: center;
+}
+
+/* Status column buttons and cell alignment */
+
+.status-cell {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.status-cell .status-btn,
+.status-cell .delete-workout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons for marking done/skipped and deleting rows */
+
+.status-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.status-check {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.status-check:hover {
+  background: var(--accent);
+  color: #064e3b;
+}
+
+.status-x {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: transparent;
+}
+
+.status-x:hover {
+  background: var(--danger);
+  color: #1f2933;
+}
+
+.delete-workout-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 999px;
+  border: 1px solid #6b7b8a;
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.delete-workout-btn:hover {
+  background: #6b7b8a;
+  color: #1f2933;
+}
+
+/* Visual dim for completed workouts */
+
+.row-done {
+  opacity: 0.65;
+}
+
+/* Stats section layout and typography */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.stats-card {
+  background: var(--bg-elevated);
+}
+
+.stats-title {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* Muscle focus list styling */
+
+.muscle-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 8px;
+  column-gap: 20px;
+}
+
+.muscle-focus-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 3px;
+}
+
+.muscle-focus-name {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.muscle-focus-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #a5b4fc;
+}
+
+/* Status matrix cards for done/idle/skipped */
+
+.status-cards {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.status-card {
+  flex: 1;
+  padding: 8px 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: #1f2933;
+  text-align: center;
+}
+
+.status-number {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.status-done {
+  color: var(--accent);
+}
+
+.status-idle {
+  color: var(--text-main);
+}
+
+.status-skipped {
+  color: var(--danger);
+}
+
+.status-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Colored strip under each status card for quick visual cues */
+
+.status-card::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  margin-top: 4px;
+  background: #334554;
+}
+
+.status-card:nth-child(1)::after {
+  background: var(--accent);
+}
+
+.status-card:nth-child(2)::after {
+  background: #6b7280;
+}
+
+.status-card:nth-child(3)::after {
+  background: #b91c1c;
+}
+
+/* Completion bar styles under status matrix */
+
+.status-progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.status-progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #1f2933;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.status-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+/* Login overlay and modal panel */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 41, 51, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.panel {
+  background: var(--bg-card);
+  padding: 20px 22px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
+}
+
+.panel h1 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Footer layout */
+
+.footer {
+  padding: 10px 22px 16px;
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  background: #24333f;
+}
+
+.footer-ver {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Toast notification bubble for success/error messages */
+
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ecfdf5;
+  background: rgba(22, 163, 74, 0.96);
+  border: 1px solid rgba(74, 222, 128, 0.9);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 200;
+}
+
+.toast::before {
+  content: "●";
+  font-size: 10px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variants for success and error toast colors */
+
+.toast-success {
+  background: rgba(22, 163, 74, 0.96);
+  border-color: rgba(74, 222, 128, 0.9);
+  color: #ecfdf5;
+}
+
+.toast-success::before {
+  color: #bbf7d0;
+}
+
+.toast-error {
+  background: rgba(185, 28, 28, 0.96);
+  border-color: rgba(248, 113, 113, 0.9);
+  color: #fef2f2;
+}
+
+.toast-error::before {
+  color: #fecaca;
+}
+
+/* Responsive adjustments for phones, tablets, and desktop */
+
+@media (max-width: 540px) {
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .nav-cta {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .section-header h2 {
+    font-size: 16px;
+  }
+
+  .section-header p {
+    font-size: 12px;
+  }
+}
+
+/* Tablet layout: keep content centered and stats side-by-side */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .top-nav-bar {
+    padding-inline: 18px;
+  }
+
+  .nav-links {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .app {
+    padding-inline: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    padding-inline: 18px;
+  }
+}
+
+/* Desktop layout: wider content and more spacing */
+
+@media (min-width: 1025px) {
+  .app {
+    max-width: 1120px;
+    padding-inline: 24px;
+  }
+
+  .top-nav-bar {
+    padding-inline: 32px;
+  }
+
+  .nav-links {
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+  }
+}
+
+
+  /* CSS styles the appearance and layout, giving the app its dark gym theme,
+   typography, spacing, card and button designs, and responsive behavior so the
+   interface stays readable and consistent across phones, tablets, and desktop
+   screens.
+   */

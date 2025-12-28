@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MuscleMap Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top navigation: logo, page links, and join button -->
+  <header class="top-nav-bar">
+    <div class="brand">
+      <span class="brand-mark">
+        <img src="Logo.png" class="brand-logo">
+      </span>
+      <span class="brand-text">MUSCLEMAP</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#create-section" class="nav-link">Create Workout</a>
+      <a href="#log-section" class="nav-link">Training Log</a>
+      <a href="#stats-section" class="nav-link">Stats</a>
+    </nav>
+
+    <button id="openLogin" type="button" class="nav-cta">JOIN NOW</button>
+  </header>
+
+  <!-- Login overlay shown before accessing the planner -->
+  <section id="loginOverlay" class="overlay" aria-label="Login form">
+    <form id="loginForm" class="panel" novalidate>
+      <h1>User Login</h1>
+
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required minlength="4">
+      </div>
+
+      <button type="submit" class="primary-btn">Log In</button>
+      <p id="loginMessage" class="message" role="status"></p>
+    </form>
+  </section>
+
+  <!-- Main app: create workouts, view weekly log, and see stats -->
+  <main id="app" class="app hidden">
+
+    <!-- Create Workout form section -->
+    <section id="create-section" class="section">
+      <header class="section-header">
+        <h2>Create Workout</h2>
+        <p>Plan your session by selecting target muscles, sets, reps, and weights.</p>
+      </header>
+
+      <form id="workoutForm" class="card" novalidate>
+        <div class="field">
+          <label for="workoutTitle">Workout Title</label>
+          <input id="workoutTitle" name="workoutTitle" type="text"
+                 placeholder="e.g. Push Up" required>
+        </div>
+
+        <div class="field">
+          <label for="muscleGroup">Target Muscle Group</label>
+          <select id="muscleGroup" name="muscleGroup" required>
+            <option value="">Select Area...</option>
+            <option>Shoulders</option>
+            <option>Chest</option>
+            <option>Back</option>
+            <option>Legs</option>
+            <option>Arms</option>
+            <option>Core</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="sets">Sets</label>
+            <input id="sets" name="sets" type="number" min="1" required>
+          </div>
+
+          <div class="field">
+            <label for="reps">Reps</label>
+            <input id="reps" name="reps" type="number" min="1" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="weightTime">Weight (kg) or Time (min)</label>
+          <input id="weightTime" name="weightTime" type="number" min="0">
+        </div>
+
+        <div class="field">
+          <label for="day">Day Selection</label>
+          <select id="day" name="day" required>
+            <option value="">Select Day...</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+        </div>
+
+        <button type="submit" class="primary-btn primary-btn-full">
+          Add to Training Log
+        </button>
+        <p id="formMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Training Log: daily tables listing planned workouts -->
+    <section id="log-section" class="section">
+      <header class="section-header">
+        <h2>Training Log</h2>
+        <p>Review and manage all workouts for the week.</p>
+      </header>
+
+      <div class="card">
+        <!-- One table per day of the week -->
+        <div class="day-block" data-day="Monday">
+          <h3>Monday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodyMonday"></tbody>
+          </table>
+        </div>
+
+        <div class="day-block" data-day="Tuesday">
+          <h3>Tuesday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodyTuesday"></tbody>
+          </table>
+        </div>
+
+        <div class="day-block" data-day="Wednesday">
+          <h3>Wednesday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodyWednesday"></tbody>
+          </table>
+        </div>
+
+        <div class="day-block" data-day="Thursday">
+          <h3>Thursday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodyThursday"></tbody>
+          </table>
+        </div>
+
+        <div class="day-block" data-day="Friday">
+          <h3>Friday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodyFriday"></tbody>
+          </table>
+        </div>
+
+        <div class="day-block" data-day="Saturday">
+          <h3>Saturday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodySaturday"></tbody>
+          </table>
+        </div>
+
+        <div class="day-block" data-day="Sunday">
+          <h3>Sunday</h3>
+          <table class="workout-table">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Target</th>
+                <th>Sets × Reps</th>
+                <th>KG / Min</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBodySunday"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats section: muscle focus counts and completion summary -->
+    <section id="stats-section" class="section">
+      <header class="section-header">
+        <h2>Stats</h2>
+        <p>See muscle focus and weekly completion at a glance.</p>
+      </header>
+
+      <div class="stats-grid">
+        <!-- Muscle Focus: count workouts per muscle group -->
+        <section class="card stats-card">
+          <h3 class="stats-title">Muscle Focus</h3>
+
+          <div class="muscle-focus-grid">
+            <div class="muscle-focus-row">
+              <span class="muscle-focus-name">Chest</span>
+              <span class="muscle-focus-value" data-muscle="Chest">0</span>
+            </div>
+            <div class="muscle-focus-row">
+              <span class="muscle-focus-name">Back</span>
+              <span class="muscle-focus-value" data-muscle="Back">0</span>
+            </div>
+            <div class="muscle-focus-row">
+              <span class="muscle-focus-name">Legs</span>
+              <span class="muscle-focus-value" data-muscle="Legs">0</span>
+            </div>
+            <div class="muscle-focus-row">
+              <span class="muscle-focus-name">Shoulders</span>
+              <span class="muscle-focus-value" data-muscle="Shoulders">0</span>
+            </div>
+            <div class="muscle-focus-row">
+              <span class="muscle-focus-name">Arms</span>
+              <span class="muscle-focus-value" data-muscle="Arms">0</span>
+            </div>
+            <div class="muscle-focus-row">
+              <span class="muscle-focus-name">Core</span>
+              <span class="muscle-focus-value" data-muscle="Core">0</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Status Matrix: done, idle, skipped + completion bar -->
+        <section class="card stats-card">
+          <h3 class="stats-title">Status Matrix</h3>
+
+          <div class="status-cards">
+            <div class="status-card">
+              <div class="status-number status-done" id="doneCount">0</div>
+              <div class="status-label">DONE</div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-number status-idle" id="pendingCount">0</div>
+              <div class="status-label">IDLE</div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-number status-skipped" id="undoneCount">0</div>
+              <div class="status-label">SKIPPED</div>
+            </div>
+          </div>
+
+          <div class="status-progress-label-row">
+            <span>Completion Rate</span>
+            <span id="completionPercent">0%</span>
+          </div>
+
+          <div class="status-progress-bar">
+            <div class="status-progress-fill" id="completionBar"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with ownership and version info -->
+  <footer class="footer">
+    <span>© 2025 MuscleMap Planner</span>
+    <span class="footer-ver">Gamez Workout Planner | v1.0</span>
+  </footer>
+
+  <!-- Toast notification container for success/error messages -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="js/script.js"></script> <!-- Loads JavaScript to add interactivity -->
+</body>
+</html>
